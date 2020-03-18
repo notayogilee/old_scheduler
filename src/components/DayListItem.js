@@ -9,6 +9,8 @@ export default function DayListItem(props) {
     "day-list__item--full": props.spots === 0
   });
 
+
+
   function formatSpots() {
     let message = props.spots + ' spots remaining';
 
@@ -28,7 +30,6 @@ export default function DayListItem(props) {
       onClick={() => props.setDay(props.name)}
     >
       <h2 className="text--regular">{props.name}</h2>
-
       <h3 className="text--light">{formatSpots()}</h3>
 
     </li>
