@@ -1,2 +1,11 @@
 import React from "react";
-import "../Appointment/styles";
+import "components/Appointment/styles.scss";
+
+
+export default function Appointment() {
+
+  return (
+    <article className="appointment"></article>
+  );
+}
+

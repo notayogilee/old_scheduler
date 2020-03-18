@@ -9,7 +9,7 @@ export default function InterviewListItem(props) {
   });
 
   return (
-    <span className={interviewerClass}
+    <li className={interviewerClass}
       onClick={() => props.setInterviewer(props.name)
       }>
       < img
@@ -18,6 +18,6 @@ export default function InterviewListItem(props) {
         alt={props.name}
       />
       {props.selected && props.name}
-    </span >
+    </li >
   );
 }
