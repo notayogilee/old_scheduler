@@ -83,12 +83,9 @@ export default function Application(props) {
         <hr className="sidebar__separator sidebar--centered" />
         <nav className="sidebar__menu">
           <DayList
-            // days={setDay()}
             days={days}
             setSelectedDay={setSelectedDay}
             selectedDay={selectedDay}
-          // day={day}
-          // setDays={setDays}
           />
         </nav>
         <img
