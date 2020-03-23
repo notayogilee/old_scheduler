@@ -1,5 +1,5 @@
 
-export function getAppointmentsForDay(state, chosenDay) {
+function getAppointmentsForDay(state, chosenDay) {
 
   let appointmentsArray = [];
 
@@ -23,5 +23,28 @@ export function getAppointmentsForDay(state, chosenDay) {
     }
     return appointmentsArray;
   }
-
 }
+
+function getInterview(state, interview) {
+
+  let id;
+  let originalAppointment = interview;
+
+  if (!originalAppointment) {
+
+    return null;
+
+  } else {
+
+    for (let interviewer in state.interviewers) {
+      if (parseInt(interviewer) === interview.interviewer) {
+        id = interview.interviewer;
+      }
+    }
+    originalAppointment.interviewer = state.interviewers[id];
+
+    return originalAppointment;
+  }
+}
+
+module.exports = { getAppointmentsForDay, getInterview }
