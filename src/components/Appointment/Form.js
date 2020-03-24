@@ -4,7 +4,6 @@ import InterviewerList from "components/InterviewerList";
 
 export default function Form(props) {
 
-  // if (props.name && props.interviewer)
 
   const [name, setName] = useState(props.name || "");
   const [interviewer, setInterviewer] = useState(props.interviewer || null);
@@ -47,9 +46,11 @@ export default function Form(props) {
           */
 
           />
+
         </form>
         <InterviewerList
-          interviewers={props.interviewers}
+          // set the interviewers to an empty array temporarily
+          interviewers={[]}
           value={interviewer}
           onChange={setInterviewer}
         />
