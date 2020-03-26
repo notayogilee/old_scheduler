@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import Button from "components/Button";
 import InterviewerList from "components/InterviewerList";
 
-export default function Form(props) {
 
+export default function Form(props) {
 
   const [name, setName] = useState(props.name || "");
   const [interviewer, setInterviewer] = useState(props.interviewer || null);
@@ -23,7 +23,7 @@ export default function Form(props) {
   }
 
   function save() {
-
+    console.log("Form Namd and int", name, interviewer)
     props.onSave(name, interviewer);
 
   }
@@ -49,8 +49,9 @@ export default function Form(props) {
 
         </form>
         <InterviewerList
+
           // set the interviewers to an empty array temporarily
-          interviewers={[]}
+          interviewers={props.interviewers}
           value={interviewer}
           onChange={setInterviewer}
         />

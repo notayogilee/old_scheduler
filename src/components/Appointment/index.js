@@ -22,20 +22,36 @@ export default function Appointment(props) {
     back()
   }
 
+  function save(name, interviewer) {
+
+    const interviewObj = props.interviewers.find(current => current.id === interviewer);
+    // console.log('WHATS UP INTERVIEWOBJ', interviewObj)
+    const newInterview = {
+      student: name,
+      interviewer: interviewObj,
+    };
+    //All good up until here
+    // console.log('Form Saved WAZA', props.id, newInterview)
+    props.bookInterview(props.id, newInterview);
+    // console.log("SHOW", interview.interviewer)
+    transition(SHOW);
+  }
   return (
     <article className="appointment">
       <Header time={props.time} >
       </Header>
 
       {mode === EMPTY &&
-        <Empty onAdd={onAdd}
+        <Empty onAdd={onAdd} />}
 
-
+      {mode === CREATE &&
+        <Form
+          onCancel={onCancel}
+          onSave={save}
+          interviewers={props.interviewers}
         />}
 
-      {mode === CREATE && <Form onCancel={onCancel} />}
-
-      {mode === SHOW && (
+      {mode === SHOW && props.interview.interviewer && (
         <Show
           student={props.interview.student}
           interviewer={props.interview.interviewer}

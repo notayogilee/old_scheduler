@@ -35,18 +35,19 @@ function getInterviewersForDay(state, chosenDay) {
     return interviewersArray;
   } else {
 
-    const chosenAppointments = filteredDays[0].appointments;
+    const interviewersForChosenDay = filteredDays[0].interviewers;
 
-    for (let chosenAppointment of chosenAppointments) {
-      for (let i = 0; i < Object.values(state.appointments).length; i++) {
+    for (let interviewerForChosenDay of interviewersForChosenDay) {
+      for (let i = 0; i < Object.values(state.interviewers).length; i++) {
 
-        if (chosenAppointment === Object.values(state.appointments)[i].id) {
+        if (interviewerForChosenDay === Object.values(state.interviewers)[i].id) {
 
-          interviewersArray.push(Object.values(state.appointments)[i]);
+          interviewersArray.push(Object.values(state.interviewers)[i]);
 
         }
       }
     }
+
     return interviewersArray;
   }
 }
